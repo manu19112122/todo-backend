@@ -1,0 +1,13 @@
+-- リストテーブル
+CREATE TABLE IF NOT EXISTS lists (
+  list_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  list_name VARCHAR(20) NOT NULL
+    );
+
+-- タスクテーブル
+CREATE TABLE IF NOT EXISTS tasks (
+  task_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  list_id BIGINT NOT NULL,
+  task_name VARCHAR(20) NOT NULL,
+    FOREIGN KEY (list_id) REFERENCES lists(list_id) ON DELETE CASCADE
+    );
